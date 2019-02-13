@@ -9,7 +9,7 @@ class Database
 	 */
 	private $db_host = "den1.mysql6.gear.host";  // Change as required
 	private $db_user = "schdbase";  // Change as required
-	private $db_pass = "Yy1U-LL-GsH0";  // Change as required
+	private $db_pass = "123_123";  // Change as required
 	private $db_name = "schdbase";	// Change as required
      /*
 	 * Extra variables that are required by other function such as boolean con variable
