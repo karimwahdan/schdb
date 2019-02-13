@@ -5,7 +5,7 @@ $db = new Database();
 	$db->connect();
  if($_GET['querytype']=="test"){
 	 
-	 echo var_dump($db);
+	 echo "karim";
  }
  if($_GET['querytype']=="shiftid")
 {
