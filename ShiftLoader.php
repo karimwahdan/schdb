@@ -3,7 +3,10 @@ include 'constrings.php';
 $db = new Database();
 	
 	$db->connect();
-
+ if($_GET['querytype']=="test"){
+	 
+	 echo var_dump($db);
+ }
  if($_GET['querytype']=="shiftid")
 {
 	
