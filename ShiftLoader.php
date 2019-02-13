@@ -14,7 +14,7 @@ $result = $db->getResult();
  
 if (!empty($result)) {
 			  foreach($result as $row) {
-			  echo "shiftcoder:".$row["shiftcode"].";"."<br>";
+			  echo "shiftcode:".$row["shiftcoder"].";"."<br>";
 				  echo var_dump($result);
 			  }
 }
