@@ -3,8 +3,8 @@ include 'constrings.php';
 $db = new Database();
 	
 	$db->connect();
-	
-if($_GET['querytype']=="shiftid")
+echo 	$_GET['querytype']=="shiftid";
+ if($_GET['querytype']=="shiftid")
 {
 	echo "karim";
 	$sql="SELECT * FROM `shifts` ";
