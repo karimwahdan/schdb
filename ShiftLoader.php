@@ -6,7 +6,7 @@ $db = new Database();
 
  if($_GET['querytype']=="shiftid")
 {
-	echo "karim";
+	
 	$sql="SELECT * FROM `shifts` ";
 	$db->sql($sql);
 
@@ -15,7 +15,7 @@ $result = $db->getResult();
 if (!empty($result)) {
 			  foreach($result as $row) {
 			  echo "shiftcode:".$row["shiftcode"].";"."<br>";
-				  echo var_dump($result);
+				
 			  }
 }
 }
