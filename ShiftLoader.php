@@ -10,10 +10,10 @@ if($_GET['querytype']=="shiftid")
 	$db->sql($sql);
 
 $result = $db->getResult();
-
+echo var_dump($result);
 if (!empty($result)) {
 			  foreach($result as $row) {
-			  echo "shiftcode:".var_dump($row["shiftcode"]).";"."<br>";
+			  echo "shiftcode:".$row["shiftcode"].";"."<br>";
 			  }
 }
 }
