@@ -6,6 +6,7 @@ $db = new Database();
 	
 if($_GET['querytype']=="shiftid")
 {
+	echo "karim";
 	$sql="SELECT * FROM `shifts` ";
 	$db->sql($sql);
 
