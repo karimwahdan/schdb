@@ -3,7 +3,7 @@ include 'constrings.php';
 $db = new Database();
 	
 	$db->connect();
-echo 	$_GET['querytype']=="shiftid";
+
  if($_GET['querytype']=="shiftid")
 {
 	echo "karim";
