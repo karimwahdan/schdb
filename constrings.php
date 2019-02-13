@@ -7,10 +7,10 @@ class Database
 	 * means that they will only be available with the 
 	 * Database class
 	 */
-	private $db_host = "den1.mssql7.gear.host";  // Change as required
-	private $db_user = "schdb";  // Change as required
-	private $db_pass = "dddddd!1";  // Change as required
-	private $db_name = "schdb";	// Change as required
+	private $db_host = "den1.mysql6.gear.host";  // Change as required
+	private $db_user = "schdbase";  // Change as required
+	private $db_pass = "Yy1U-LL-GsH0";  // Change as required
+	private $db_name = "schdbase";	// Change as required
      /*
 	 * Extra variables that are required by other function such as boolean con variable
 	 */
