@@ -140,7 +140,7 @@ $result = $db->getResult();
 
 if (!empty($result)) {
 			  foreach($result as $row) {
-			  echo "|id:".$row["id"]."|deptname:".$row["deptname"].";"."<br>";
+			  echo .$row["id"].$row["deptname"];
 			  }
 }
 }
