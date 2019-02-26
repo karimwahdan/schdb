@@ -33,7 +33,7 @@ $result = $db->getResult();
 if (!empty($result)) {
 			  foreach($result as $row) {
 			  echo "|shiftname:".$row["shiftname"]."|timefrom:".$row["hourfrom"]."|timeto:".$row["hourto"]."|hours:".$row["hours"].";"."<br>";
-			  }
+			  } 
 }
 }
 else if($_GET['querytype']=="updateshifts")
