@@ -1,5 +1,5 @@
 <?php
-include 'constrs.php';
+include 'constrings.php';
 $db = new Database();
 	
 	$db->connect();
