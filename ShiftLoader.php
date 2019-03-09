@@ -116,27 +116,36 @@ else if(empty($result)){
 }
 	}
 	
-else if($_GET['querytype']=="loadcentres")
-	{
-		//$shiftcode=$_POST['shiftcodepost'];
-	$sql="SELECT * FROM `bloodcentres`" ;
-	$db->sql($sql);
-
 else if($_GET['querytype']=="loadhospitals")
 	{
 		//$shiftcode=$_POST['shiftcodepost'];
-	$sql="SELECT * FROM `hospitals`" ;
-	$db->sql($sql);	
-	
+	$sql="SELECT * FROM `depts`" ;
+	$db->sql($sql);
+
 $result = $db->getResult();
 
 if (!empty($result)) {
 			  foreach($result as $row) {
 			  echo $row["id"];
 			  echo $row["hospitalname"];
-		          echo $row["contactno"];
+			  echo $row["contactno"];
 			  echo $row["address"];
-				  
+
+			  }
+}
+}
+	
+else if($_GET['querytype']=="loadcentres")
+	{
+		//$shiftcode=$_POST['shiftcodepost'];
+	$sql="SELECT * FROM `bloodcentres`" ;
+	$db->sql($sql);
+
+$result = $db->getResult();
+
+if (!empty($result)) {
+			  foreach($result as $row) {
+			  echo "|id:".$row["id"]."|centrename:".$row["name"].";"."<br>";
 			  }
 }
 }
