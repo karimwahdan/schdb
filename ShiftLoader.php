@@ -126,10 +126,10 @@ $result = $db->getResult();
 
 if (!empty($result)) {
 			  foreach($result as $row) {
-			  echo $row["id"];
-			  echo $row["hospitalname"];
-			  echo $row["contactno"];
-			  echo $row["address"];
+			  echo $row["id"]."\n";
+			  echo $row["hospitalname"]."\n";
+			  echo $row["contactno"]."\n";
+			  echo $row["address"]."\n";
 
 			  }
 }
