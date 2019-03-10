@@ -126,11 +126,13 @@ $result = $db->getResult();
 
 if (!empty($result)) {
 			  foreach($result as $row) {
-			  printf ( $row["id"]."\n");
-			  printf ($row["hospitalname"]."\n");
-			  printf ($row["contactno"]."\n");
-			  printf ($row["address"]."\n");
-
+				  $myObj->id= $row["id"];
+				  $myObj->HospitalName=$row["hospitalname"];
+				  $myObj->contactno=$row["contactno"];
+				  $myObj->address=$row["address"];
+				  $myJSON = json_encode($myObj);
+				  echo $myJSON;
+			 
 			  }
 }
 }
