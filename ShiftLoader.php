@@ -123,7 +123,7 @@ else if($_GET['querytype']=="loadhospitals")
 	$db->sql($sql);
 
 $result = $db->getResult();
-
+ $myObj= new stdClass();
 if (!empty($result)) {
 			  foreach($result as $row) {
 				  $myObj->id= $row["id"];
