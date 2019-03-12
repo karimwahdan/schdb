@@ -116,24 +116,22 @@ else if(empty($result)){
 }
 	}
 	
-else if($_GET['querytype']=="loadhospitals")
+	else if($_GET['querytype']=="loadhospitals")
 	{
 		//$shiftcode=$_POST['shiftcodepost'];
 	$sql="SELECT * FROM `hospitals`" ;
 	$db->sql($sql);
-
 $result = $db->getResult();
  $myObj= new stdClass();
 if (!empty($result)) {
-			  foreach($result as $row) {
-				  $myObj->id= $row["id"];
-				  $myObj->HospitalName=$row["hospitalname"];
-				  $myObj->contactno=$row["contactno"];
-				  $myObj->address=$row["address"];
-				  $myJSON = json_encode($myObj);
-				  echo $myJSON;
-			 
+			 foreach($result as $row) {
+				
+				 
+				  $Out=json_encode($result);
+				 // echo $myJSON;
+				
 			  }
+			    echo $Out;
 }
 }
 	
