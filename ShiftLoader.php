@@ -116,64 +116,52 @@ else if(empty($result)){
 	echo "free";
 }
 	}
-$govid="";
-else if($_GET['querytype']=="loadgovid")
-	{	
-		$jsondata = "php://input";
-$phpjsonstring = file_get_contents( $jsondata ); // Get content of posted JSON String
-$data = json_decode( $phpjsonstring, true ); // Decoding content of posted JSON String
-$govid = $data["governomentID"];
-}
-else if($_GET['querytype']=="loadhospitals")
-	{	
-		//$shiftcode=$_POST['shiftcodepost'];
-	$sql="SELECT * FROM `hospitals` Where governomentID=$govid" ;
-	$db->sql($sql);
-$result = $db->getResult();
- $myObj= new stdClass();
-if (!empty($result)) {
- foreach($result as $row) {
-  $Out=json_encode($result);
-// echo $myJSON;
-  }
-  echo $Out;
-}
-}	
-	else if($_GET['querytype']=="loadgovs")
+
+	
+else if($_GET['querytype']=="loaddepts")
 	{
 		//$shiftcode=$_POST['shiftcodepost'];
-	$sql="SELECT * FROM governorates" ;
+	$sql="SELECT * FROM `depts`" ;
 	$db->sql($sql);
-$result = $db->getResult();
- $myObj= new stdClass();
-if (!empty($result)) {
- foreach($result as $row) {				 
- $Out=json_encode($result,JSON_UNESCAPED_UNICODE);
-// echo $myJSON;
-			  }
- echo $Out;
-}
-}
 
-else if($_GET['querytype']=="loadcentres")
+$result = $db->getResult();
+
+if (!empty($result)) {
+			  foreach($result as $row) {
+			  echo $row["id"]."<br>".$row["deptname"];
+			  }
+}
+}
+else if($_GET['querytype']=="dpt")
 	{
 		//$shiftcode=$_POST['shiftcodepost'];
-	$sql="SELECT * FROM bloodcentres" ;
+	$sql="SELECT * FROM `depts` WHERE `deptname`='".$_POST['item_value']."'" ;
 	$db->sql($sql);
-$result = $db->getResult();
- $myObj= new stdClass();
-if (!empty($result)) {
-			 foreach($result as $row) {
-				
-				 
-				  $Out=json_encode($result,JSON_UNESCAPED_UNICODE);
-				 // echo $myJSON;
-				
-			  }
-			    echo $Out;
-}
-}
 
+$result = $db->getResult();
+
+if (!empty($result)) {
+			  foreach($result as $row)
+			  {
+			  echo "|deptid:".$row["id"].";"."<br>";
+			  }
+}
+}
+else if($_GET['querytype']=="ctr")
+	{
+		//$shiftcode=$_POST['shiftcodepost'];
+	$sql="SELECT * FROM `bloodcentres` WHERE `name`='".$_POST['item_value']."'" ;
+	$db->sql($sql);
+
+$result = $db->getResult();
+
+if (!empty($result)) {
+			  foreach($result as $row)
+			  {
+			  echo "|deptid:".$row["id"].";"."<br>";
+			  }
+}
+}
 
 
 ?>
