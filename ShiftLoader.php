@@ -140,8 +140,7 @@ if (!empty($result)) {
   }
   echo $Out;
 }
-}
-	
+}	
 	else if($_GET['querytype']=="loadgovs")
 	{
 		//$shiftcode=$_POST['shiftcodepost'];
@@ -150,14 +149,11 @@ if (!empty($result)) {
 $result = $db->getResult();
  $myObj= new stdClass();
 if (!empty($result)) {
-			 foreach($result as $row) {
-				
-				 
-				  $Out=json_encode($result,JSON_UNESCAPED_UNICODE);
-				 // echo $myJSON;
-				
+ foreach($result as $row) {				 
+ $Out=json_encode($result,JSON_UNESCAPED_UNICODE);
+// echo $myJSON;
 			  }
-			    echo $Out;
+ echo $Out;
 }
 }
 	
