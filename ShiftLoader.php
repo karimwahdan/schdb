@@ -157,17 +157,22 @@ if (!empty($result)) {
 else if($_GET['querytype']=="loadcentres")
 	{
 		//$shiftcode=$_POST['shiftcodepost'];
-	$sql="SELECT * FROM `bloodcentres`" ;
+	$sql="SELECT * FROM bloodcentres" ;
 	$db->sql($sql);
-
 $result = $db->getResult();
-
+ $myObj= new stdClass();
 if (!empty($result)) {
-			  foreach($result as $row) {
-			  echo "|id:".$row["id"]."|centrename:".$row["name"].";"."<br>";
+			 foreach($result as $row) {
+				
+				 
+				  $Out=json_encode($result,JSON_UNESCAPED_UNICODE);
+				 // echo $myJSON;
+				
 			  }
+			    echo $Out;
 }
 }
+	
 else if($_GET['querytype']=="loaddepts")
 	{
 		//$shiftcode=$_POST['shiftcodepost'];
