@@ -117,7 +117,7 @@ else if(empty($result)){
 }
 	}
 	
-	$govid = "1";
+	$govid = "";
  if($_GET['querytype']=="loadgovid")
 	{	
 		 $json_str = file_get_contents('php://input');
