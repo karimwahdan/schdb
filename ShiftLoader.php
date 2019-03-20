@@ -120,7 +120,7 @@ else if(empty($result)){
 	$govid = "";
  if($_GET['querytype']=="loadgovid")
 	{	
-    $govid = $_POST['governoment_chosenid'];
+   $govid = json_decode(file_get_contents('php://input'));
         }
 else if($_GET['querytype']=="loadhospitals")
 	{	
