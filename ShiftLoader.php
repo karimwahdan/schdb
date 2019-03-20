@@ -127,7 +127,7 @@ else if(empty($result)){
 else if($_GET['querytype']=="loadhospitals")
 	{	
 		//$shiftcode=$_POST['shiftcodepost'];
-	$sql="SELECT * FROM `hospitals` Where governomentID='$govid'" ;
+	$sql="SELECT * FROM `hospitals` Where governomentID='$govid';" ;
 	$db->sql($sql);
 $result = $db->getResult();
  $myObj= new stdClass();
