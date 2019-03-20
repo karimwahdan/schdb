@@ -118,12 +118,7 @@ else if(empty($result)){
 	}
 	
 	$govid = "1";
-else if($_GET['querytype']=="loadgovid")
-	{	
-		 $json_str = file_get_contents('php://input');
-    $json_obj = json_decode($json_str);
-    $govid = $json_obj->CAF;
-}
+
 else if($_GET['querytype']=="loadhospitals")
 	{	
 		//$shiftcode=$_POST['shiftcodepost'];
