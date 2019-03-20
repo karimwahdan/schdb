@@ -146,7 +146,7 @@ if (!empty($result)) {
 			 foreach($result as $row) {
 				
 				 
-				  $Out=json_encode($result);
+				  $Out=json_encode($result,JSON_UNESCAPED_UNICODE);
 				 // echo $myJSON;
 				
 			  }
