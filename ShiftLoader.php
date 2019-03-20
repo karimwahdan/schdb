@@ -135,6 +135,25 @@ if (!empty($result)) {
 }
 }
 	
+	else if($_GET['querytype']=="loadgovs")
+	{
+		//$shiftcode=$_POST['shiftcodepost'];
+	$sql="SELECT * FROM governorates" ;
+	$db->sql($sql);
+$result = $db->getResult();
+ $myObj= new stdClass();
+if (!empty($result)) {
+			 foreach($result as $row) {
+				
+				 
+				  $Out=json_encode($result);
+				 // echo $myJSON;
+				
+			  }
+			    echo $Out;
+}
+}
+	
 else if($_GET['querytype']=="loadcentres")
 	{
 		//$shiftcode=$_POST['shiftcodepost'];
