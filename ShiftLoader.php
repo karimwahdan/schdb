@@ -117,7 +117,46 @@ else if(empty($result)){
 }
 	}
 
-	
+	$govid="";
+else if($_GET['querytype']=="loadgovid")
+	{	
+		$jsondata = "php://input";
+$phpjsonstring = file_get_contents( $jsondata ); // Get content of posted JSON String
+$data = json_decode( $phpjsonstring, true ); // Decoding content of posted JSON String
+$govid = $data["governomentID"];
+}
+else if($_GET['querytype']=="loadhospitals")
+	{	
+		//$shiftcode=$_POST['shiftcodepost'];
+	$sql="SELECT * FROM `hospitals` Where governomentID=$govid" ;
+	$db->sql($sql);
+$result = $db->getResult();
+ $myObj= new stdClass();
+if (!empty($result)) {
+ foreach($result as $row) {
+  $Out=json_encode($result);
+// echo $myJSON;
+  }
+  echo $Out;
+}
+}	
+	else if($_GET['querytype']=="loadgovs")
+	{
+		//$shiftcode=$_POST['shiftcodepost'];
+	$sql="SELECT * FROM governorates" ;
+	$db->sql($sql);
+$result = $db->getResult();
+ $myObj= new stdClass();
+if (!empty($result)) {
+ foreach($result as $row) {				 
+ $Out=json_encode($result,JSON_UNESCAPED_UNICODE);
+// echo $myJSON;
+			  }
+ echo $Out;
+}
+}
+
+
 else if($_GET['querytype']=="loaddepts")
 	{
 		//$shiftcode=$_POST['shiftcodepost'];
