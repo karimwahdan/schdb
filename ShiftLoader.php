@@ -120,10 +120,9 @@ else if(empty($result)){
 	$govid="";
 else if($_GET['querytype']=="loadgovid")
 	{	
-		$jsondata = "php://input";
-$phpjsonstring = file_get_contents( $jsondata ); // Get content of posted JSON String
-$data = json_decode( $phpjsonstring, true ); // Decoding content of posted JSON String
-$govid = $data["governomentID"];
+		 $json_str = file_get_contents('php://input');
+    $json_obj = json_decode($json_str);
+    $govid = $json_obj->CAF;
 }
 else if($_GET['querytype']=="loadhospitals")
 	{	
