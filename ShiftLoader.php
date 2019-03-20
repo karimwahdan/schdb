@@ -117,8 +117,7 @@ else if(empty($result)){
 }
 	}
 	
-	$govid="1";
-
+	
 else if($_GET['querytype']=="loadhospitals")
 	{	
 		//$shiftcode=$_POST['shiftcodepost'];
