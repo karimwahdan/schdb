@@ -117,15 +117,18 @@ else if(empty($result)){
 }
 	}
 	
-	$govid = "";
+	$govids = "";
  if($_GET['querytype']=="loadgovid")
 	{	
 		 $json_str = file_get_contents('php://input');
     $json_obj = json_decode($json_str);
-    $govid = $json_obj->CAF;
+    $govids = $json_obj->CAF;
 }
 else if($_GET['querytype']=="loadhospitals")
 	{	
+	 $json_str = file_get_contents('php://input');
+    $json_obj = json_decode($json_str);
+    $govid = $json_obj->CAF;
 		//$shiftcode=$_POST['shiftcodepost'];
 	$sql="SELECT * FROM `hospitals` Where governomentID='$govid';" ;
 	$db->sql($sql);
