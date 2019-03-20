@@ -118,16 +118,8 @@ else if(empty($result)){
 	}
 	
 	$govid = "";
- if (isset($_POST['govchosenid'])) {
-    $govid = $_POST['govchosenid'];
-} else {
-    $govid = 0;
-}
- if($_GET['querytype']=="loadgovid")
-	{	
-  
-        }
-else if($_GET['querytype']=="loadhospitals")
+ if (isset($_POST['govchosenid'])) {$govid = $_POST['govchosenid'];} else {$govid = 0;}
+if($_GET['querytype']=="loadhospitals")
 	{	
 echo $govid;
 }
