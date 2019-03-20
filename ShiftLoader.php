@@ -116,6 +116,44 @@ else if(empty($result)){
 	echo "free";
 }
 	}
+$govid="";
+else if($_GET['querytype']=="loadgovid")
+	{	
+		$jsondata = "php://input";
+$phpjsonstring = file_get_contents( $jsondata ); // Get content of posted JSON String
+$data = json_decode( $phpjsonstring, true ); // Decoding content of posted JSON String
+$govid = $data["governomentID"];
+}
+else if($_GET['querytype']=="loadhospitals")
+	{	
+		//$shiftcode=$_POST['shiftcodepost'];
+	$sql="SELECT * FROM `hospitals` Where governomentID=$govid" ;
+	$db->sql($sql);
+$result = $db->getResult();
+ $myObj= new stdClass();
+if (!empty($result)) {
+ foreach($result as $row) {
+  $Out=json_encode($result);
+// echo $myJSON;
+  }
+  echo $Out;
+}
+}	
+	else if($_GET['querytype']=="loadgovs")
+	{
+		//$shiftcode=$_POST['shiftcodepost'];
+	$sql="SELECT * FROM governorates" ;
+	$db->sql($sql);
+$result = $db->getResult();
+ $myObj= new stdClass();
+if (!empty($result)) {
+ foreach($result as $row) {				 
+ $Out=json_encode($result,JSON_UNESCAPED_UNICODE);
+// echo $myJSON;
+			  }
+ echo $Out;
+}
+}
 
 else if($_GET['querytype']=="loadcentres")
 	{
@@ -135,64 +173,7 @@ if (!empty($result)) {
 			    echo $Out;
 }
 }
-	
-else if($_GET['querytype']=="loaddepts")
-	{
-		//$shiftcode=$_POST['shiftcodepost'];
-	$sql="SELECT * FROM `depts`" ;
-	$db->sql($sql);
 
-$result = $db->getResult();
 
-if (!empty($result)) {
-			  foreach($result as $row) {
-			  echo $row["id"]."<br>".$row["deptname"];
-			  }
-}
-}
-else if($_GET['querytype']=="dpt")
-	{
-		//$shiftcode=$_POST['shiftcodepost'];
-	$sql="SELECT * FROM `depts` WHERE `deptname`='".$_POST['item_value']."'" ;
-	$db->sql($sql);
-
-$result = $db->getResult();
-
-if (!empty($result)) {
-			  foreach($result as $row)
-			  {
-			  echo "|deptid:".$row["id"].";"."<br>";
-			  }
-}
-}
-else if($_GET['querytype']=="ctr")
-	{
-		//$shiftcode=$_POST['shiftcodepost'];
-	$sql="SELECT * FROM `bloodcentres` WHERE `name`='".$_POST['item_value']."'" ;
-	$db->sql($sql);
-
-$result = $db->getResult();
-
-if (!empty($result)) {
-			  foreach($result as $row)
-			  {
-			  echo "|deptid:".$row["id"].";"."<br>";
-			  }
-}
-}
-
-else if($_GET['querytype']=="addemp")
-	{
-		//$shiftcode=$_POST['shiftcodepost'];
-	$sql="INSERT INTO `users`( `fullname`, `empcode`, `username`, `password`, `centre`, `dept`, `title`) VALUES ('".$_POST['fullname']."','".$_POST['empcode']."','".$_POST['username']."','".$_POST['password']."','".$_POST['centre']."','".$_POST['dept']."','".isset($_POST['title'])."')" ;
-	$db->sql($sql);
-
-$result = $db->getResult();
-
-if (empty($result)) {
-			  
-			  echo "added";
-			  }
-}
 
 ?>
