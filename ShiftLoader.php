@@ -124,7 +124,7 @@ else if(empty($result)){
 if($_GET['querytype']=="karimtest"){
 	$result=$_POST['govchosenid'];
 $Out=json_encode($result,JSON_UNESCAPED_UNICODE);
-echo $Out;
+echo $result;
 }
 if($_GET['querytype']=="loadhospitals")
 	{	
