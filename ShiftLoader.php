@@ -117,26 +117,22 @@ else if(empty($result)){
 }
 	}
 	
-	$govid = "";
 
-
-  $govid = $_POST['govchosenid'];
-if($_GET['querytype']=="karimtest"){
-	$result=$_POST['govchosenid'];
-$Out=json_encode($result,JSON_UNESCAPED_UNICODE);
-echo $result;
-}
 if($_GET['querytype']=="loadhospitals")
 	{	
-$sql="SELECT * FROM hospitals Where governomentID='$_POST['govid']'" ;
+$sql="SELECT * FROM hospitals where governomentID='$_POST['govid']';" ;
 	$db->sql($sql);
 $result = $db->getResult();
  $myObj= new stdClass();
 if (!empty($result)) {
  foreach($result as $row) {				 
  $Out=json_encode($result,JSON_UNESCAPED_UNICODE);
+	 
 }
-	else if($_GET['querytype']=="loadgovs")
+echo $Out;
+}
+}
+else if($_GET['querytype']=="loadgovs")
 	{
 		//$shiftcode=$_POST['shiftcodepost'];
 	$sql="SELECT * FROM governorates" ;
