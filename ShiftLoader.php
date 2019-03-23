@@ -118,18 +118,19 @@ else if(empty($result)){
 	}
 	
 
-if($_GET['querytype']=="loadhospitals")
-	{	
-$sql="SELECT * FROM hospitals where governomentID='$_POST['govid']';" ;
+ if($_GET['querytype']=="loadhospitals")
+    {
+        $govid=$_POST['governomentid'];
+        $sql="SELECT * FROM hospitals where governomentID='$govid'" ;
 	$db->sql($sql);
 $result = $db->getResult();
  $myObj= new stdClass();
 if (!empty($result)) {
- foreach($result as $row) {				 
- $Out=json_encode($result,JSON_UNESCAPED_UNICODE);
-	 
-}
-echo $Out;
+    foreach($result as $row) {
+        $Out=json_encode($result,JSON_UNESCAPED_UNICODE);
+
+    }
+    echo $Out;
 }
 }
 else if($_GET['querytype']=="loadgovs")
