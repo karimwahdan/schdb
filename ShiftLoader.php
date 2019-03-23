@@ -117,10 +117,10 @@ else if(empty($result)){
 }
 	}
 	
-	$govid = "123456789";
+	$govid = "";
 
 
- if (isset($_POST['govchosenid'])) {$govid = $_POST['govchosenid'];} else {$govid = 9999;}
+  $govid = $_POST['govchosenid'];
 if($_GET['querytype']=="karimtest"){
 	$result=$_POST['govchosenid'];
 $Out=json_encode($result,JSON_UNESCAPED_UNICODE);
