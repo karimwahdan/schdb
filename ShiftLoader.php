@@ -128,7 +128,13 @@ echo $result;
 }
 if($_GET['querytype']=="loadhospitals")
 	{	
-echo $_POST['govchosenid'].'value';
+$sql="SELECT * FROM hospitals Where governomentID='$_POST['govid']'" ;
+	$db->sql($sql);
+$result = $db->getResult();
+ $myObj= new stdClass();
+if (!empty($result)) {
+ foreach($result as $row) {				 
+ $Out=json_encode($result,JSON_UNESCAPED_UNICODE);
 }
 	else if($_GET['querytype']=="loadgovs")
 	{
